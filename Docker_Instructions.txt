@@ -1,0 +1,79 @@
+Install docker from https://www.docker.com/
+
+Check if it works
+
+# docker --version
+# docker-compose --version
+
+Image is like a snapshot of a software component. It contains the required executables, environment settings and so on. You just type docker run and a preconfigured image will be used to start a container. In other words a container is a running instance of an image.
+
+Images may come from two sources:
+
+1. Download from image repository - https://hub.docker.com/explore/
+2. I can create my own image.
+
+
+Lets say I want to download nginx from docker image repository. I should find it and choose a version to download. At the moment many official Docker images move to Alpine, because it’s much smaller in size and it’s security focused.
+
+If I want to use Alpine image, I can do two things:
+
+1. pull the image with # docker pull. Docker pull will just download the image locally and I willl see it in my image list.
+2. Or I can run the image with # docker run, this will pull the image, if it’s not available locally and then run it. Run is just a one step solution to pull and run.
+
+# docker pull nginx:1.10.3-alpine
+
+Start the container
+
+# docker run --name my-nginx -p 80:80 nginx:1.10.3-alpine
+
+Without -p 80:80 I can’t make the nginx server functional. This parameter maps the container’s port 80 to the host computer’s port 80. If I wanted to assign a different port on my host, let’s say 8080, I would use -p 8080:80 in the above parameter.
+
+Open the browser and check http://localhost
+
+To start and stop the container
+# docker start my-nginx
+# docker stop my-nginx
+
+Use # docker logs my-nginx now to see the logs, or # docker logs -f my-nginx to leave logs open in terminal and follow the requests.
+
+# docker exec -ti my-nginx /bin/sh
+
+This command starts an interactive shell in our running container. You’ll get a shell with root access and will see all the Linux file system.
+
+Use # exit to leave the shell and return to the terminal.
+
+Mount a config file
+
+# docker stop my-nginx and # docker rm my-nginx and then recreate the continer with the following command:
+
+docker run --name my-nginx -d -p 80:80 -v /Users/my_user_name/Development/tutorials/docker/nginx.conf:/etc/nginx/nginx.conf:ro nginx:1.10.3-alpine
+
+-v - maps the local directory to the container.
+:ro -  means that it mounts the volume in read only mode.
+
+To add a webpage to nginx with another volume mapping. Create a directory called src and create a file called index.html in that directory. 
+
+docker run --name my-nginx -d -p 80:80 -v /Users/my_user_name/Development/tutorials/docker/nginx.conf:/etc/nginx/nginx.conf:ro -v /Users/my_user_name/Development/tutorials/docker/src:/usr/share/nginx/html:ro nginx:1.10.3-alpine
+
+Go to http://localhost to check if it works.
+
+I don’t need to restart the container. Just refresh the page after I have done some changes to the file.
+
+
+Build my own image with Dockerfile
+
+Create Dockerfile and open it in a text editor
+
+Add the following text:
+
+FROM nginx:1.10.3-alpine
+MAINTAINER me@example.com
+COPY ./nginx.conf  /etc/nginx/nginx.conf
+
+The process of creating an image from a Dockerfile is called building.
+
+Build the image with # docker build -t new-nginx:1.0
+
+Then now to start a container from this new image I should use this command:
+
+# docker run --name my-zip-nginx -d -p 80:80 -v /Users/my_user_name/Development/tutorials/docker/src:/usr/share/nginx/html:ro zip-nginx:1.0

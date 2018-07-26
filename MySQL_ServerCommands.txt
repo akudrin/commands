@@ -1,0 +1,41 @@
+(For Mac OS X) Starting MySQL Server and Client
+
+-- Start/shutdown the Server: 
+-- Use Graphical Control
+ 
+-- Start a Client
+cd /usr/local/mysql/bin
+./mysql -u root -p
+
+-- Enter password:     
+   // Enter the root's password set during installation.
+   // NOTHING will be shown for maximum security. 
+
+-- List all users
+SELECT User FROM mysql.user;
+
+-- Change the Password for the Superuser "root"
+-- Change password for 'root'@'localhost'. Replace xxxx with your chosen password
+-- Take note that strings are to be enclosed by a pair of single-quotes.
+alter user 'root'@'localhost' identified by 'xxxx';
+
+-- Create a new user called "myuser", which can login from localhost, with password "xxxx"
+create user 'myuser'@'localhost' identified by 'xxxx';
+
+-- Grant permission to myuser
+grant all on *.* to 'myuser'@'localhost';
+
+-- Stop mysqld
+/usr/local/mysql/bin/mysqladmin -u root -p shutdown 
+
+Or:
+
+sudo mysqld stop
+
+Or:
+
+sudo /usr/local/mysql/bin/mysqld stop
+
+Or:
+
+sudo mysql.server stop

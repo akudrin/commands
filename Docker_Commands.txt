@@ -1,0 +1,39 @@
+https://www.docker.com/sites/default/files/Docker_CheatSheet_08.09.2016_0.pdf
+
+
+Download an image
+# docker pull image_name
+
+Remove an image
+# docker rmi  <IMAGE ID>
+
+Remove container
+# docker rm  <CONTAINER ID>
+
+List running containers
+# docker ps
+
+List all containers on your system 
+# docker ps -a
+
+Start and stop the container
+# docker [start|stop] container_name
+
+Create and start container, run command
+# docker run -ti --name container_name image_name command
+
+Create and start container, run command, destroy container 
+# docker run --rm -ti image_name command
+
+Example filesystem and port mappings
+# docker run -it --rm -p 8080:8080 -v /path/to/agent.jar:/agent.jar -e JAVA_OPTS=”-javaagent:/agent.jar” tomcat:8.0.29-jre8
+
+Show images
+# docker images
+
+If you want to remove all docker containers. You can use simply following commands. First command will stop all running docker containers and second command will delete them.
+
+# docker stop $(docker ps -a -q)
+# docker rm $(docker ps -a -q)
+
+

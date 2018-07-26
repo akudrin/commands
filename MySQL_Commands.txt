@@ -1,0 +1,51 @@
+Frequently-used MySQL Commands
+
+MySQL commands are NOT case sensitive.
+
+-- General
+;           -- Sends command to server for processing (or \g)
+\c          -- Cancels (aborts) the current command
+ 
+-- Database-level
+DROP DATABASE databaseName;                 -- Deletes the database
+DROP DATABASE IF EXISTS databaseName;       -- Deletes only if it exists
+CREATE DATABASE databaseName;               -- Creates a new database
+CREATE DATABASE IF NOT EXISTS databaseName; -- Creates only if it does not exists
+SHOW DATABASES;                             -- Shows all databases in this server
+   
+USE databaseName                            -- Set default database.
+                                            -- Otherwise you need to use the fully-qualified name, in the form 
+                                            --   of "databaseName.tableName", to refer to a table.
+
+SELECT DATABASE()                          -- Show the default database
+SHOW CREATE DATABASE databaseName          -- Show the CREATE DATABASE statement
+
+   
+-- Table-level
+DROP TABLE tableName;
+DROP TABLE IF EXISTS tableName;
+CREATE TABLE tableName (column1Definition, column2Definition, ...);
+CREATE TABLE IF NOT EXISTS tableName (column1Definition, column2Definition, ...);
+SHOW TABLES;              -- Shows all the tables in the default database
+DESCRIBE tableName;       -- Describes the columns for the table
+DESC tableName;           -- Same as above
+ALTER TABLE tableName ...  -- Modify a table, e.g., ADD COLUMN and DROP COLUMN
+ALTER TABLE tableName ADD columnDefinition
+ALTER TABLE tableName DROP columnName
+ALTER TABLE tableName ADD FOREIGN KEY (columnNmae) REFERENCES tableName (columnNmae)
+ALTER TABLE tableName DROP FOREIGN KEY constraintName
+SHOW CREATE TABLE tableName        -- Show the CREATE TABLE statement for this tableName
+   
+-- Record-level (CURD - create, update, read, delete)
+INSERT INTO tableName VALUES (column1Value, column2Value,...);
+INSERT INTO tableName (column1Name, ..., columnNName) 
+   VALUES (column1Value, ..., columnNValue);
+DELETE FROM tableName WHERE criteria;
+UPDATE tableName SET columnName = expression WHERE criteria;
+SELECT column1Name, column2Name, ... FROM tableName 
+   WHERE criteria
+   ORDER BY columnAName ASC|DESC, columnBName ASC|DESC, ...;
+  
+
+SOURCE full-Path-Filename        -- Running a script of MySQL statements
+SHOW WARNINGS;                   -- Show the warnings of the previous statement
