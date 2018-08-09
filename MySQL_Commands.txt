@@ -1,5 +1,25 @@
 Frequently-used MySQL Commands
 
+MySQL CONSTRAINT is used to define rules to allow or restrict what values can be stored in columns. The purpose of inducing constraints is to enforce the integrity of a database.
+
+MySQL CONSTRAINTS are used to limit the type of data that can be inserted into a table.
+
+MySQL CONSTRAINTS can be classified into two types - column level and table level.
+
+The column level constraints can apply only to one column where as table level constraints are applied to the entire table.
+
+MySQL CONSTRAINT is declared at the time of creating a table.
+
+MySQL CONSTRAINTs are :
+
+    NOT NULL
+    UNIQUE
+    PRIMARY KEY
+    FOREIGN KEY
+    CHECK
+    DEFAULT
+
+
 MySQL commands are NOT case sensitive.
 
 -- General
@@ -28,6 +48,7 @@ CREATE TABLE tableName (column1Definition, column2Definition, ...);
 CREATE TABLE IF NOT EXISTS tableName (column1Definition, column2Definition, ...);
 SHOW TABLES;              -- Shows all the tables in the default database
 DESCRIBE tableName;       -- Describes the columns for the table
+SHOW FIELDS FROM tableName	--Shows all columns for the table
 DESC tableName;           -- Same as above
 ALTER TABLE tableName ...  -- Modify a table, e.g., ADD COLUMN and DROP COLUMN
 ALTER TABLE tableName ADD columnDefinition
