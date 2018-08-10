@@ -2,7 +2,7 @@ dpkg-deb -I *.deb[name of the deb package] - displays information about the pack
 dpkg --get-selections [name of the package] - finds if the package is installed
 dpkg-deb --contents [name of the package] - shows files in the package
 
-pwd - to know which directory you are in.
+pwd - to know which directory you are in (print working directory).
 ls — Use the "ls" command to know what files are in the directory you are in. You can see all the hidden files by using the command “ls -a”. Use "ls -l" to show permissions, owner and group names, etc. To sort by size descending "ls -lS" and ascending "ls -lrS". "ls -lt" sort by time modified (most recently modified first) before sorting the operands in lexicographical order.
 mkdir & rmdir — Use the mkdir command when you need to create a folder or a directory.  Use rmdir to delete a directory. But rmdir can only be used to delete an empty directory. To delete a directory containing files, use rm.
 rm — Use the rm command to delete files and directories. But rm cannot simply delete a directory. Use “rm -r” to delete a directory. In this case, it deletes both the folder and the files in it.
@@ -10,3 +10,4 @@ touch — The touch command is used to create a file. It can be anything, from a
 cp — Use the cp command to copy files through the command line. It takes two arguments: The first is the location of the file to be copied, the second is where to copy.
 mv — Use the mv command to move files through the command line. We can also use the mv command to rename a file. For example, if we want to rename the file “text” to “new”, we can use “mv text new”. It takes the two arguments, just like the cp command.
 cat — Use the cat command to display the contents of a file. It is usually used to easily view programs.
+uname - display the name of the system kernel. "uname -r" display the kernel release number. "uname -v" display the kernel build version. "uname -m" display the machine type. "uname -o" display the name of the OS. "uname -a" display all information that uname can show.
