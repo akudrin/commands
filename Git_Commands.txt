@@ -166,3 +166,20 @@ $ git push [name of the remote repository] [branch name]
 Uploads all local branch commits to GitHub and commit them to a branch
 $ git pull
 Downloads bookmark history and incorporates changes
+
+Create branch and merge with the master (push to GitHub)
+git branch - command to see all branches with the star next to currently used branch
+git branch branch1 - creates another branch with the name branch1
+git checkout branch1 - switch to another branch named branch1
+git add . - now when you are in another branch (branch1) you can add all files to your stage so changes you do to them are visible
+git commit -m "Created Project Object" - commit changes as required
+git push - recommendation on a command you need to run 
+To push the current branch and set the remote as upstream, use
+
+    git push --set-upstream origin branch1
+git checkout master -  so we go back to master branch in order to merge master with branch1
+git merge branch1 - merge master with branch1
+git push - upload changes to github repository
+
+
+
