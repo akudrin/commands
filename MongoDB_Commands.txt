@@ -1,0 +1,17 @@
+On MAC OS use the following to add mongo to the PATH
+
+export PATH=<mongodb-install-directory>/bin:$PATH
+
+
+Before you start MongoDB for the first time, create the 
+directory to which the mongod process will write data. 
+By default, the mongod process uses the /data/db directory. 
+
+mkdir -p /data/db
+
+
+
+mongod - starts the server
+mongo - starts the shell
+
+
