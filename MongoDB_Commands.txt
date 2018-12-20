@@ -9,7 +9,9 @@ By default, the mongod process uses the /data/db directory.
 
 mkdir -p /data/db
 
+Get the permissions set as they should be you can run the following command
 
+sudo chmod 0755 /data/db && sudo chown $USER /data/db
 
 mongod - starts the server
 mongo - starts the shell
