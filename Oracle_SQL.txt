@@ -1,3 +1,5 @@
+Basic keywords
+
 SELECT	Used to state which columns to query. Use * for all
 FROM	Declares which table/view etc to select from
 WHERE	Introduces a condition
@@ -9,3 +11,11 @@ INNER JOIN	Returns all rows where key record of one table is equal to key record
 LEFT JOIN	Returns all rows from the ‘left’ (1st) table with the matching rows in the right (2nd)
 RIGHT JOIN	Returns all rows from the ‘right’ (2nd) table with the matching rows in the left (1st)
 FULL OUTER JOIN	Returns rows that match either in the left or right table
+
+Reporting aggregate functions
+
+COUNT	Return the number of rows in a certain table/view
+SUM	Accumulate the values
+AVG	Returns the average for a group of values
+MIN	Returns the smallest value of the group
+MAX	Returns the largest value of the group
