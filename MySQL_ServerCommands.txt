@@ -46,4 +46,4 @@ Find PID process:
 pgrep mysql
 
 Kill the process using PID:
-killall -9 #process number
+kill -9 #process number
