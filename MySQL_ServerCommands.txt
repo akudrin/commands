@@ -39,3 +39,11 @@ sudo /usr/local/mysql/bin/mysqld stop
 Or:
 
 sudo mysql.server stop
+
+On MAC/Linux/Unix
+
+Find PID process:
+pgrep mysql
+
+Kill the process using PID:
+killall -9 #process number
