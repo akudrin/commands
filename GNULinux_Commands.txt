@@ -12,6 +12,7 @@ mv — Use the mv command to move files through the command line. We can also us
 cat — Use the cat command to display the contents of a file. It is usually used to easily view programs.
 uname - display the name of the system kernel. "uname -r" display the kernel release number. "uname -v" display the kernel build version. "uname -m" display the machine type. "uname -o" display the name of the OS. "uname -a" display all information that uname can show.
 
+To navigate to the previous directory (or back), use cd -.
 
 1 – SYSTEM INFORMATION
 # Display Linux system information
