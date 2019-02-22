@@ -191,3 +191,10 @@ If you want your history to be a little clearer, I'd recommend adding some infor
 
 git merge --strategy=ours --no-commit master
 git commit          # add information to the template merge message
+
+CHANGE THE NAME OF THE LAST COMMIT
+
+1. On the command line, navigate to the repository that contains the commit you want to amend.
+2. Type git commit --amend and press Enter.
+3. In your text editor, edit the commit message and save the commit.
+4. Use the git push --force command to force push over the old commit.
