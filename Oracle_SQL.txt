@@ -1,0 +1,59 @@
+Basic keywords
+
+SELECT	Used to state which columns to query. Use * for all
+FROM	Declares which table/view etc to select from
+WHERE	Introduces a condition
+=	Used for comparing a value to a specified input
+LIKE	Special operator used with the WHERE clause to search for a specific pattern in a column
+GROUP BY	Arranges identical data into groups
+HAVING	Specifies that only rows where aggregate values meet the specified conditions should be returned. Used because the WHERE keyword cannot be used with aggregate functions
+INNER JOIN	Returns all rows where key record of one table is equal to key records of another
+LEFT JOIN	Returns all rows from the ‘left’ (1st) table with the matching rows in the right (2nd)
+RIGHT JOIN	Returns all rows from the ‘right’ (2nd) table with the matching rows in the left (1st)
+FULL OUTER JOIN	Returns rows that match either in the left or right table
+
+Reporting aggregate functions
+
+COUNT	Return the number of rows in a certain table/view
+SUM	Accumulate the values
+AVG	Returns the average for a group of values
+MIN	Returns the smallest value of the group
+MAX	Returns the largest value of the group
+
+Querying data from a table
+
+SELECT c1 FROM t	Select data in column c1 from a table named t
+SELECT * FROM t	Select all rows and columns from a table named t
+SELECT c1 FROM t WHERE c1 = ‘test’ Select data in column c1 from a table named t where the value in c1 = ‘test’
+SELECT c1 FROM t ORDER BY c1 ASC (DESC) Select data in column c1 from a table name t and order by c1, either in ascending (default) or descending order
+SELECT c1 FROM t ORDER BY c1LIMIT n OFFSET offset Select data in column c1 from a table named t and skip offset of rows and return the next n rows
+SELECT c1, aggregate(c2) FROM t GROUP BY c1 Select data in column c1 from a table named t and group rows using an aggregate function
+SELECT c1, aggregate(c2) FROM t GROUP BY c1 HAVING condition Select data in column c1 from a table named t and group rows using an aggregate function and filter these groups using ‘HAVING’ clause
+
+Data modification
+
+NSERT INTO t(column_list)
+VALUES(value_list) Insert one row into a table named t
+INSERT INTO t(column_list)
+VALUES (value_list), (value_list), … Insert multiple rows into a table named t
+INSERT INTO t1(column_list)
+SELECT column_list FROM t2 Insert rows from t2 into a table named t1
+UPDATE tSET c1 = new_value	Update a new value in table t in the column c1 for all rows
+UPDATE tSET c1 = new_value, c2 = new_value
+WHERE condition Update values in column c1 and c2 in table t that match the condition
+DELETE FROM t	Delete all the rows from a table named t
+DELETE FROM tWHERE condition	Delete all rows from that a table named t that match a certain condition
+
+Views
+
+CREATE VIEW view1 AS
+SELECT c1, c2 FROM t1 WHERE condition Create a view, comprising of columns c1 and c2 from a table named t1 where a certain condition has been met.
+
+Indexes
+
+CREATE INDEX index_nameON t(c1, c2)	Create an index on columns c1 and c2 of the table t
+CREATE UNIQUE INDEX index_name
+ON t(c3, c4) Create a unique index on columns c3 and c4 of the table t
+DROP INDEX index_name	Drop an index
+
+

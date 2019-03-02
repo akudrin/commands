@@ -9,9 +9,24 @@ By default, the mongod process uses the /data/db directory.
 
 mkdir -p /data/db
 
+Get the permissions set as they should be you can run the following command
 
+sudo chmod 0755 /data/db && sudo chown $USER /data/db
 
 mongod - starts the server
 mongo - starts the shell
 
+db.createUser({"user": "ajitesh", "pwd": "gurukul", "roles": ["readWrite", "dbAdmin"]}) - Create users in the database; The command creates a user with username as “ajitesh” and having the role such as “readWrite” and “dbAdmin”
+show users - Show users; If executed without selecting a database, it displays all users along with database information.
+mongo -u USERNAME -p PASSWORD --authenticationDatabase DATABASENAME - Login into the database with username and password
+ For user created in above command, the login command would look like the following: - mongo -u ajitesh -p gurukul --authenticationDatabase testdb
 
+show dbs - Show all databases
+use testdb - Create a database, say, testdb; Switch to the database. Until a collection is created in a database, the database name is not listed as a result of execution of the command, “show dbs”
+db.createCollection("user") - Add a collection
+
+show collections, show tables - Show all collections in a database; Execute the “use dbname” command to access the database before executing the given command. The following command also work: - db.getCollectionNames()
+db.user.insert({"name": "Ajitesh Shukla", "location": "hyderabad", "username": "eajitesh"}) - Insert a record in the collection; A record is inserted in the collection, “user”.
+db.user.find(), db.user.find().pretty() - Display list of records of a collection; “user” collection is used.
+db.user.find({"username": "eajitesh"}) , db.user.find({"username": "eajitesh", "location": "hyderabad"}) - Display a list of records matching with value (s) of specific fields
+db.user.drop() - Drop the collection

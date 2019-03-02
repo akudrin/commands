@@ -181,5 +181,20 @@ git checkout master -  so we go back to master branch in order to merge master w
 git merge branch1 - merge master with branch1
 git push - upload changes to github repository
 
+Merge previous branch into the master
 
+git checkout better_branch
+git merge --strategy=ours master    # keep the content of this branch, but record a merge
+git checkout master
+git merge better_branch             # fast-forward master up to the merge
+If you want your history to be a little clearer, I'd recommend adding some information to the merge commit message to make it clear what you've done. Change the second line to:
 
+git merge --strategy=ours --no-commit master
+git commit          # add information to the template merge message
+
+CHANGE THE NAME OF THE LAST COMMIT
+
+1. On the command line, navigate to the repository that contains the commit you want to amend.
+2. Type git commit --amend and press Enter.
+3. In your text editor, edit the commit message and save the commit.
+4. Use the git push --force command to force push over the old commit.
