@@ -1,0 +1,21 @@
+SSH Server
+
+Install
+To install the openssh-server, you need to install the openssh-server package:
+sudo dnf install -y openssh-server;
+
+Start
+To start the sshd daemon (openssh-server) in the current session:
+sudo systemctl start sshd.service;
+
+Stop
+To stop the active (if any) sshd daemon in the current session:
+sudo systemctl stop sshd.service;
+
+Enable
+To configure the sshd daemon to start automatically at boot time:
+sudo systemctl enable sshd.service;
+
+Disable
+To configure the sshd daemon to stop automatic initialization at boot time:
+sudo systemctl disable sshd.service;
